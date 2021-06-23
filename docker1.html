@@ -1,0 +1,183 @@
+
+ <style>
+ body {
+      	background-image: url("Abc.gif");
+	margin-left:150px;  
+	margin-right:250px;
+  }
+  h1{
+	  color:yellow;
+          border-left:30px solid red;
+          letter-spacing:5px;
+          border:20px red;
+           text-shadow: 2px 2px 5px red;
+         text-shadow:center;
+          margin-top: 40px;
+          margin: 1em 0 0.5em 0;
+	  font-weight: 600;
+	  font-family: 'Titillium Web', sans-serif;
+	  position: relative;  
+	  font-size: 36px;
+	  line-height: 50px;
+	  padding: 47px 15px 15px 30%;
+	  box-shadow: 
+		 inset 0 0 0 1px rgba(173, 202, 240, 0.4), 
+		 inset  0 0 5px rgba(169, 201, 243, 0.5),
+		 inset 0px 0 30px white;
+	  border-radius: 0 10px 0 10px;
+	  background:  url("doc1.jpg") no-repeat center left;
+   }
+   
+  #screen {
+   background: rgb(82, 81, 81);
+   width: 60%;
+   height: 500px;
+   border-style:dotted;
+   border-color: #fdfdfd;
+   margin: 0 auto;
+   padding: 2px;
+   opacity: 0.9;
+   overflow:inherit;
+ }
+ #textBox {
+	   width: auto;
+	   color: #f2f3ed;
+	   border: none;
+	   box-sizing: border-box;
+	   font-size: 20px;
+	   vertical-align: middle;
+	   background-color: #000;
+	   opacity: inherit;}
+
+    
+    #injected {
+	    color:white;
+         text-align:center;
+         padding :5px;
+         font-size:40px;
+         text-shadow: 2px 2px 5px red;
+         text-shadow:center;
+      padding-left: 10px;
+      font-size: 18px;
+      color: white;
+      text-align: justify;
+      margin-top: 5px;
+    }
+  
+    #injected ul {
+      list-style: none;
+    }
+  
+    #injected li,
+    th,
+    td {
+      padding-right: 45px;
+      padding-left: 25px;
+      padding-top: 7px;
+      text-align: left;
+    }
+  
+    #userInput {
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    /* Page Background */
+.tm-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1000;
+}
+
+.tm-bg-left,
+.tm-bg-right {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.tm-bg-right { background-color: rgba(0,0,0,0.5); }
+
+.tm-bg-left {
+    border-right: 230px solid rgba(0,0,0,0.5);
+    border-top: 100vh solid transparent;
+
+ #try
+  {
+          text-align:center;
+          padding:50px;
+          border-left:25px solid red;
+          letter-spacing:5px;
+          border:5px red;
+          outline-style: outset;
+  }
+
+
+
+ </style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Docker</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <!-- <link href="css/templatemo-diagoona.css" rel="stylesheet" /> -->
+</head>
+
+
+
+
+ <div id="container">
+  <div id="bar"></div>
+   <div id="try">
+	   <div class="header"><h1>Docker Web Application </h1></div>
+    </div>
+ </div>
+    <div id="screen">
+      <div id="userInput">
+      <input type="text" value="root@Aakash Nagpal:~$" id="commandprompt" size="30" readonly="readonly">
+        <input type="text" id="textarea"  placeholder="Enter the command" name="x" size="50"
+          autofocus>
+        <button onclick="lw();">RUN</button>
+      </div>
+      <pre>
+      <div id="injected">OUTPUT COMES HERE....</div>
+      </pre>
+    </div>
+  </div>
+
+  <script>
+    function lw() {
+    
+    var xhr = new XMLHttpRequest();
+    alert("Request Sending.....");
+    xhr.open("GET","http://192.168.0.104/cgi-bin/docker1.py?x="+ document.getElementById("textarea").value,true);
+    xhr.send();
+    xhr.onload =  function()  {
+    document.getElementById("injected").innerHTML = xhr.responseText ;
+    alert("your output comes now.....");
+    }
+    }
+    </script>
+
+
+
+ 
+  <script src="jquery-3.4.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="jquery.backstretch.min.js"></script>
+    <script src="background.js"></script>
+</body>
+</html>
+
+

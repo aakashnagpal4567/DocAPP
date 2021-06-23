@@ -1,0 +1,22 @@
+<script>
+function lw() {
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.0.104/cgi-bin/docker.py?x="+document.getElementById("input").value,true);
+
+xhr.send();
+
+
+xhr.onload =  function()  {
+document.getElementById("out").innerHTML = xhr.responseText ;
+}
+}
+</script>
+
+<body id="main">
+<div> root@ip-192-168-1-10:~# <input id="input"/><button onclick="lw();">RUN
+</button></div>
+<pre>
+<div id="out"> Output Come Soon...</div><pre>
+</body>
+
